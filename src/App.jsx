@@ -198,7 +198,7 @@ export default function App() {
           </div>
 
           <img
-            src="/images/compañia.jpeg"
+            src="/images/compania.jpeg"
             alt="Acompañamiento en Clínica Benaia"
             className="rounded-3xl shadow"
           />
