@@ -1,10 +1,47 @@
 export default function App() {
   const whatsappUrl =
     "https://wa.me/528444193111?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20Cl%C3%ADnica%20Benaia.%20Busco%20un%20lugar%20donde%20me%20sienta%20acompa%C3%B1ado%2C%20orientado%20y%20en%20buenas%20manos.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20para%20dar%20el%20siguiente%20paso.%20Gracias.";
+
+  const whatsappCtaUrl =
+    "https://wa.me/528444193111?text=Hola%2C%20necesito%20una%20cirug%C3%ADa%20y%20quiero%20que%20me%20ayuden%20a%20encontrar%20mi%20m%C3%A9dico%20y%20me%20gu%C3%ADen%20en%20todo%20lo%20que%20necesito.%20Espero%20su%20respuesta%20a%20la%20brevedad.";
+
   const mapsUrl =
     "https://www.google.com/maps/dir/?api=1&destination=Cl%C3%ADnica+Benaia+Saltillo";
   const wazeUrl =
     "https://waze.com/ul?q=Cl%C3%ADnica%20Benaia%20Saltillo&navigate=yes";
+
+  const instalaciones = [
+    {
+      nombre: "Benaia",
+      img: "fachada.jpeg",
+      text: "Confianza desde el primer momento.",
+    },
+    {
+      nombre: "Recepción",
+      img: "recepcion.jpeg",
+      text: "Atención clara y ordenada desde tu llegada.",
+    },
+    {
+      nombre: "Quirófano",
+      img: "quirofano.jpeg",
+      text: "Seguridad y respaldo en cada procedimiento.",
+    },
+    {
+      nombre: "Recuperación",
+      img: "recuperacion.jpeg",
+      text: "Seguimiento cercano después de tu cirugía.",
+    },
+    {
+      nombre: "Habitaciones",
+      img: "habitaciones.jpeg",
+      text: "Comodidad para ti y tu familia.",
+    },
+    {
+      nombre: "Rayos X",
+      img: "rayosx.jpeg",
+      text: "Apoyo diagnóstico oportuno.",
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-slate-50 pb-20 text-slate-900 sm:pb-0">
@@ -67,13 +104,19 @@ export default function App() {
             </span>
 
             <h1 className="mt-6 text-3xl font-semibold leading-tight text-white drop-shadow-2xl sm:text-4xl lg:text-5xl">
-              Te acompañamos,<span className="block">en el camino</span><span className="block">de tu recuperación</span>
+              Te acompañamos,
+              <span className="mt-2 block text-emerald-400 drop-shadow-lg">
+                en el camino
+              </span>
+              <span className="block text-emerald-400 drop-shadow-lg">
+                de tu recuperación
+              </span>
             </h1>
 
             <p className="mt-4 max-w-xl text-base leading-7 text-slate-100 drop-shadow-lg">
               Inspirados en la fortaleza de Benaía —“El Señor ha construido”— te
-              acompañamos en cada paso para recuperar tu bienestar, con una atención
-              cercana, clara y humana cuando más lo necesitas.
+              acompañamos en cada paso para recuperar tu bienestar, con una
+              atención cercana, clara y humana cuando más lo necesitas.
             </p>
 
             <p className="mt-5 text-base font-medium text-amber-300 drop-shadow-lg sm:text-lg">
@@ -85,7 +128,7 @@ export default function App() {
                 href={whatsappUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex w-fit min-w-[220px] items-center justify-center rounded-full bg-emerald-700 px-5 py-3 font-semibold text-white shadow-xl shadow-emerald-950/25 transition hover:bg-emerald-600 mx-auto sm:mx-0"
+                className="mx-auto inline-flex w-fit min-w-[220px] items-center justify-center rounded-full bg-emerald-700 px-5 py-3 font-semibold text-white shadow-xl shadow-emerald-950/25 transition hover:bg-emerald-600 sm:mx-0"
               >
                 Solicitar información por WhatsApp
               </a>
@@ -94,7 +137,7 @@ export default function App() {
                 href={mapsUrl}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex w-fit min-w-[220px] items-center justify-center rounded-full border border-white/25 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/15 mx-auto sm:mx-0"
+                className="mx-auto inline-flex w-fit min-w-[220px] items-center justify-center rounded-full border border-white/25 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/15 sm:mx-0"
               >
                 Cómo llegar
               </a>
@@ -108,13 +151,19 @@ export default function App() {
 
             <div className="mt-8 grid gap-3 text-sm text-white sm:grid-cols-3">
               <div className="rounded-2xl border border-white/15 bg-slate-950/55 px-4 py-3 backdrop-blur-md">
-                <span className="[text-shadow:2px_2px_0px_rgba(0,0,0,0.95),-2px_-2px_0px_rgba(0,0,0,0.95)]">✔ Atención personalizada</span>
+                <span className="[text-shadow:2px_2px_0px_rgba(0,0,0,0.95),-2px_-2px_0px_rgba(0,0,0,0.95)]">
+                  ✔ Atención personalizada
+                </span>
               </div>
               <div className="rounded-2xl border border-white/15 bg-slate-950/55 px-4 py-3 backdrop-blur-md">
-                <span className="[text-shadow:2px_2px_0px_rgba(0,0,0,0.95),-2px_-2px_0px_rgba(0,0,0,0.95)]">✔ Atención integral</span>
+                <span className="[text-shadow:2px_2px_0px_rgba(0,0,0,0.95),-2px_-2px_0px_rgba(0,0,0,0.95)]">
+                  ✔ Atención integral
+                </span>
               </div>
               <div className="rounded-2xl border border-white/15 bg-slate-950/55 px-4 py-3 backdrop-blur-md">
-                <span className="[text-shadow:2px_2px_0px_rgba(0,0,0,0.95),-2px_-2px_0px_rgba(0,0,0,0.95)]">✔ Acompañamiento humano</span>
+                <span className="[text-shadow:2px_2px_0px_rgba(0,0,0,0.95),-2px_-2px_0px_rgba(0,0,0,0.95)]">
+                  ✔ Acompañamiento humano
+                </span>
               </div>
             </div>
           </div>
@@ -136,7 +185,10 @@ export default function App() {
               "Instalaciones seguras y ordenadas",
               "Acompañamiento durante todo el proceso",
             ].map((item) => (
-              <div key={item} className="rounded-2xl bg-emerald-100 border border-emerald-200 p-6">
+              <div
+                key={item}
+                className="rounded-2xl border border-emerald-200 bg-emerald-100 p-6"
+              >
                 {item}
               </div>
             ))}
@@ -151,26 +203,7 @@ export default function App() {
         </h2>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {[
-            { nombre: "Benaia", img: "fachada.jpeg", text: "Confianza desde el primer momento." },
-            {
-              nombre: "Recepción",
-              img: "recepcion.jpeg",
-              text: "Atención clara y ordenada desde tu llegada.",
-            },
-            {
-              nombre: "Quirófano",
-              img: "quirofano.jpeg",
-              text: "Seguridad y respaldo en cada procedimiento.",
-            },
-            {
-              nombre: "Recuperación",
-              img: "recuperacion.jpeg",
-              text: "Seguimiento cercano después de tu cirugía.",
-            },
-            { nombre: "Habitaciones", img: "habitaciones.jpeg", text: "Comodidad para ti y tu familia." },
-            { nombre: "Rayos X", img: "rayosx.jpeg", text: "Apoyo diagnóstico oportuno." },
-          ].map((item) => (
+          {instalaciones.map((item) => (
             <div key={item.nombre} className="overflow-hidden rounded-2xl bg-white shadow">
               <img
                 src={`/images/${item.img}`}
@@ -200,7 +233,7 @@ export default function App() {
           <img
             src="/images/compania.jpeg"
             alt="Acompañamiento en Clínica Benaia"
-            className="rounded-3xl shadow"
+            className="h-full w-full rounded-3xl object-cover shadow"
           />
         </div>
       </section>
@@ -210,12 +243,12 @@ export default function App() {
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">
             No solo tratamos pacientes
-            <span className="block text-emerald-700 mt-3">
+            <span className="mt-3 block text-emerald-700">
               acompañamos procesos de recuperación
             </span>
           </h2>
 
-          <p className="mt-8 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-slate-600">
             En Clínica Benaia entendemos que cada persona llega con una historia,
             una preocupación y una necesidad de sentirse segura. Por eso, más que
             un espacio médico, somos un punto de apoyo donde encontrarás claridad,
@@ -228,7 +261,7 @@ export default function App() {
       <section className="bg-slate-100 py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-3xl font-semibold">Nuestra esencia</h2>
-          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+          <p className="mx-auto mt-4 max-w-2xl text-slate-600">
             Más que un espacio médico, somos un lugar donde cada persona encuentra
             acompañamiento, claridad y confianza en uno de los momentos más
             importantes de su vida.
@@ -256,11 +289,41 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-3 text-sm">
-            <div className="rounded-2xl bg-white p-4 shadow">✔ Atención centrada en la persona</div>
-            <div className="rounded-2xl bg-white p-4 shadow">✔ Claridad y confianza en cada paso</div>
-            <div className="rounded-2xl bg-white p-4 shadow">✔ Acompañamiento real durante todo el proceso</div>
+          <div className="mt-12 grid gap-4 text-sm sm:grid-cols-3">
+            <div className="rounded-2xl bg-white p-4 shadow">
+              ✔ Atención centrada en la persona
+            </div>
+            <div className="rounded-2xl bg-white p-4 shadow">
+              ✔ Claridad y confianza en cada paso
+            </div>
+            <div className="rounded-2xl bg-white p-4 shadow">
+              ✔ Acompañamiento real durante todo el proceso
+            </div>
           </div>
+        </div>
+      </section>
+
+      {/* CTA FINAL */}
+      <section className="bg-emerald-50 py-20 text-center">
+        <div className="mx-auto max-w-3xl px-6">
+          <h2 className="text-3xl font-semibold leading-tight text-slate-900">
+            ¿Aún no tienes quién te opere?
+          </h2>
+
+          <p className="mt-6 text-lg text-slate-600">
+            En Clínica Benaia podemos ayudarte a encontrar el especialista adecuado
+            y acompañarte en todo el proceso para que tomes una decisión con
+            seguridad y confianza.
+          </p>
+
+          <a
+            href={whatsappCtaUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 inline-block rounded-full bg-emerald-700 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-emerald-600"
+          >
+            Quiero que me orienten sobre mi caso
+          </a>
         </div>
       </section>
 
@@ -305,7 +368,6 @@ export default function App() {
           </a>
         </div>
 
-        {/* MAPA */}
         <div className="mx-auto mt-10 max-w-4xl px-4">
           <iframe
             src="https://www.google.com/maps?q=Cl%C3%ADnica+Benaia+Saltillo&output=embed"
