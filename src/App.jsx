@@ -1,4 +1,8 @@
+import React from "react";
+
 export default function App() {
+  const [showNotice, setShowNotice] = React.useState(false);
+
   const whatsappUrl =
     "https://wa.me/528444193111?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20Cl%C3%ADnica%20Benaia.%20Busco%20un%20lugar%20donde%20me%20sienta%20acompa%C3%B1ado%2C%20orientado%20y%20en%20buenas%20manos.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20para%20dar%20el%20siguiente%20paso.%20Gracias.";
 
@@ -42,6 +46,26 @@ export default function App() {
       text: "Apoyo diagnóstico oportuno.",
     },
   ];
+
+  const handleCaseSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const nombre = formData.get("nombre")?.toString().trim() || "";
+    const correo = formData.get("correo")?.toString().trim() || "";
+    const caso = formData.get("caso")?.toString().trim() || "";
+
+    const mensaje = `Hola, me gustaría que analizaran mi caso.%0A%0ANombre: ${encodeURIComponent(
+      nombre
+    )}%0ACorreo: ${encodeURIComponent(correo)}%0A%0ADescripción:%0A${encodeURIComponent(
+      caso
+    )}%0A%0AQuedo atento a su orientación.`;
+
+    setShowNotice(true);
+    setTimeout(() => {
+      window.open(`https://wa.me/528444193111?text=${mensaje}`, "_blank");
+      setShowNotice(false);
+    }, 1000);
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 pb-20 text-slate-900 sm:pb-0">
@@ -90,7 +114,7 @@ export default function App() {
         <img
           src="/images/guerrero-benaia.png"
           alt="Inspiración Clínica Benaia"
-          className="absolute inset-0 h-full w-full object-cover object-[50%_30%] sm:object-center brightness-50 contrast-90 saturate-75"
+          className="absolute inset-0 h-full w-full object-cover object-[50%_30%] brightness-50 contrast-90 saturate-75 sm:object-center"
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/98 via-slate-950/92 to-slate-950/70" />
@@ -249,7 +273,11 @@ export default function App() {
           </h2>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-slate-600">
-            En Clínica Benaia entendemos que cada persona llega con una historia, una preocupación y una necesidad de recuperar su salud y sentirse segura. Por eso, más que un espacio médico, somos un punto de apoyo donde encontrarás claridad, acompañamiento y confianza en cada etapa de tu proceso.
+            En Clínica Benaia entendemos que cada persona llega con una historia,
+            una preocupación y una necesidad de recuperar su salud y sentirse
+            segura. Por eso, más que un espacio médico, somos un punto de apoyo
+            donde encontrarás claridad, acompañamiento y confianza en cada etapa
+            de tu proceso.
           </p>
         </div>
       </section>
@@ -258,7 +286,6 @@ export default function App() {
       <section className="bg-slate-100 py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-3xl font-semibold">Nuestra esencia</h2>
-          
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">
             en clínica benaia creemos firmemente en el <span className="italic font-semibold text-emerald-700">bien hacer</span> y en el <span className="italic font-semibold text-emerald-700">hacer lo justo</span> en cada decisión. nuestra esencia es actuar con ética, claridad y responsabilidad, poniendo siempre al paciente en el centro, para que cada paso de su proceso sea correcto, transparente y digno de confianza.
           </p>
@@ -309,27 +336,18 @@ export default function App() {
               </h2>
 
               <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-                Cuéntanos brevemente tu caso para analizarlo. Siéntete en confianza de decirnos lo que necesitas. Respondemos y atendemos todos los mensajes.
+                Cuéntanos brevemente tu caso para analizarlo. Siéntete en confianza
+                de decirnos lo que necesitas. Respondemos y atendemos todos los
+                mensajes.
               </p>
 
               <p className="mt-6 text-sm italic text-emerald-700">
-                “Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.” — Mateo 7:7
+                “Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.”
+                — Mateo 7:7
               </p>
             </div>
 
-            <form
-              className="mt-10 grid gap-5"
-              onSubmit={(e) => {
-                e.preventDefault();
-                const formData = new FormData(e.currentTarget);
-                const nombre = formData.get("nombre")?.toString().trim() || "";
-                const correo = formData.get("correo")?.toString().trim() || "";
-                const caso = formData.get("caso")?.toString().trim() || "";
-
-                const mensaje = `Hola, quiero enviar mi caso para valoración.%0A%0ANombre: ${encodeURIComponent(nombre)}%0ACorreo: ${encodeURIComponent(correo)}%0A%0AMi caso:%0A${encodeURIComponent(caso)}`;
-                window.open(`https://wa.me/528444193111?text=${mensaje}`, "_blank");
-              }}
-            >
+            <form className="mt-10 grid gap-5" onSubmit={handleCaseSubmit}>
               <div className="grid gap-5 md:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-slate-700">
@@ -383,6 +401,16 @@ export default function App() {
           </div>
         </div>
       </section>
+
+      {showNotice && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
+          <div className="animate-[fadeIn_0.25s_ease-out] rounded-2xl bg-white px-6 py-5 text-center shadow-xl">
+            <p className="text-sm text-slate-700">
+              Estamos preparando tu mensaje y conectándote por WhatsApp…
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* CTA FINAL */}
       <section className="bg-emerald-50 py-20 text-center">
