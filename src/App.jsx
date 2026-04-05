@@ -249,10 +249,7 @@ export default function App() {
           </h2>
 
           <p className="mx-auto mt-8 max-w-3xl text-lg leading-relaxed text-slate-600">
-            En Clínica Benaia entendemos que cada persona llega con una historia,
-            una preocupación y una necesidad de sentirse segura. Por eso, más que
-            un espacio médico, somos un punto de apoyo donde encontrarás claridad,
-            acompañamiento y confianza en cada etapa de tu proceso.
+            En Clínica Benaia entendemos que cada persona llega con una historia, una preocupación y una necesidad de recuperar su salud y sentirse segura. Por eso, más que un espacio médico, somos un punto de apoyo donde encontrarás claridad, acompañamiento y confianza en cada etapa de tu proceso.
           </p>
         </div>
       </section>
@@ -261,10 +258,9 @@ export default function App() {
       <section className="bg-slate-100 py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-3xl font-semibold">Nuestra esencia</h2>
+          
           <p className="mx-auto mt-4 max-w-2xl text-slate-600">
-            Más que un espacio médico, somos un lugar donde cada persona encuentra
-            acompañamiento, claridad y confianza en uno de los momentos más
-            importantes de su vida.
+            en clínica benaia creemos firmemente en el <span className="italic font-semibold text-emerald-700">bien hacer</span> y en el <span className="italic font-semibold text-emerald-700">hacer lo justo</span> en cada decisión. nuestra esencia es actuar con ética, claridad y responsabilidad, poniendo siempre al paciente en el centro, para que cada paso de su proceso sea correcto, transparente y digno de confianza.
           </p>
 
           <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -299,6 +295,91 @@ export default function App() {
             <div className="rounded-2xl bg-white p-4 shadow">
               ✔ Acompañamiento real durante todo el proceso
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ENVIANOS TU CASO */}
+      <section className="bg-emerald-700 py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="rounded-[2rem] bg-white p-8 shadow-xl sm:p-10">
+            <div className="text-center">
+              <h2 className="text-3xl font-semibold text-slate-900 sm:text-4xl">
+                Envíanos tu caso
+              </h2>
+
+              <p className="mx-auto mt-4 max-w-2xl text-slate-600">
+                Cuéntanos brevemente tu caso para analizarlo. Siéntete en confianza de decirnos lo que necesitas. Respondemos y atendemos todos los mensajes.
+              </p>
+
+              <p className="mt-6 text-sm italic text-emerald-700">
+                “Pedid, y se os dará; buscad, y hallaréis; llamad, y se os abrirá.” — Mateo 7:7
+              </p>
+            </div>
+
+            <form
+              className="mt-10 grid gap-5"
+              onSubmit={(e) => {
+                e.preventDefault();
+                const formData = new FormData(e.currentTarget);
+                const nombre = formData.get("nombre")?.toString().trim() || "";
+                const correo = formData.get("correo")?.toString().trim() || "";
+                const caso = formData.get("caso")?.toString().trim() || "";
+
+                const mensaje = `Hola, quiero enviar mi caso para valoración.%0A%0ANombre: ${encodeURIComponent(nombre)}%0ACorreo: ${encodeURIComponent(correo)}%0A%0AMi caso:%0A${encodeURIComponent(caso)}`;
+                window.open(`https://wa.me/528444193111?text=${mensaje}`, "_blank");
+              }}
+            >
+              <div className="grid gap-5 md:grid-cols-2">
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    name="nombre"
+                    required
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-700">
+                    Correo electrónico
+                  </label>
+                  <input
+                    type="email"
+                    name="correo"
+                    required
+                    className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
+                    placeholder="tucorreo@ejemplo.com"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="mb-2 block text-sm font-medium text-slate-700">
+                  Cuéntanos brevemente tu caso
+                </label>
+                <textarea
+                  name="caso"
+                  required
+                  rows="6"
+                  className="w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
+                  placeholder="Cuéntanos brevemente tu caso para analizarlo. Siéntete en confianza de decirnos lo que necesitas. Respondemos y atendemos todos los mensajes."
+                ></textarea>
+              </div>
+
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center rounded-full bg-emerald-700 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-emerald-600"
+                >
+                  Enviar mi caso por WhatsApp
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
