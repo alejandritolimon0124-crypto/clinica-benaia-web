@@ -2,12 +2,10 @@ import React from "react";
 
 export default function App() {
   const [showNotice, setShowNotice] = React.useState(false);
+  const [cirugiaTipo, setCirugiaTipo] = React.useState("");
 
   const whatsappUrl =
     "https://wa.me/528444193111?text=Hola%2C%20necesito%20informaci%C3%B3n%20sobre%20Cl%C3%ADnica%20Benaia.%20Busco%20un%20lugar%20donde%20me%20sienta%20acompa%C3%B1ado%2C%20orientado%20y%20en%20buenas%20manos.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n%20para%20dar%20el%20siguiente%20paso.%20Gracias.";
-
-  const whatsappCtaUrl =
-    "https://wa.me/528444193111?text=Hola%2C%20necesito%20una%20cirug%C3%ADa%20y%20quiero%20que%20me%20ayuden%20a%20encontrar%20mi%20m%C3%A9dico%20y%20me%20gu%C3%ADen%20en%20todo%20lo%20que%20necesito.%20Espero%20su%20respuesta%20a%20la%20brevedad.";
 
   const mapsUrl =
     "https://www.google.com/maps/dir/?api=1&destination=Cl%C3%ADnica+Benaia+Saltillo";
@@ -67,9 +65,14 @@ export default function App() {
     }, 1000);
   };
 
+  const whatsappCtaHref = `https://wa.me/528444193111?text=${encodeURIComponent(
+    `Hola, necesito una cirugía y quiero que me ayuden a encontrar mi médico. La cirugía que creo necesitar es: ${
+      cirugiaTipo || "__________"
+    }. Quiero que me guíen en todo lo que necesito. Espero su respuesta a la brevedad.`
+  )}`;
+
   return (
     <div className="min-h-screen bg-slate-50 pb-20 text-slate-900 sm:pb-0">
-      {/* HEADER */}
       <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
           <div className="flex min-w-0 items-center gap-3">
@@ -97,7 +100,6 @@ export default function App() {
         </div>
       </header>
 
-      {/* LOGO HERO PREMIUM */}
       <section className="bg-gradient-to-b from-slate-950 to-slate-900 py-16 text-center">
         <img
           src="/images/logo.jpeg"
@@ -109,7 +111,6 @@ export default function App() {
         </p>
       </section>
 
-      {/* HERO GUERRERO */}
       <section className="relative min-h-[88vh] overflow-hidden">
         <img
           src="/images/guerrero-benaia.png"
@@ -194,7 +195,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* POR QUE ELEGIR */}
       <section className="bg-white py-20">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-3xl font-semibold">¿Por qué elegir Clínica Benaia?</h2>
@@ -220,7 +220,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* INSTALACIONES */}
       <section className="mx-auto max-w-7xl px-6 py-20">
         <h2 className="mb-10 text-3xl font-semibold">
           Instalaciones pensadas para hacerte sentir en buenas manos
@@ -243,7 +242,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ACOMPAÑAMIENTO */}
       <section className="bg-white py-20">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
           <div>
@@ -262,7 +260,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* STORYTELLING */}
       <section className="bg-white py-24">
         <div className="mx-auto max-w-5xl px-6 text-center">
           <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">
@@ -282,7 +279,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* MISION Y VISION */}
       <section className="bg-slate-100 py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 className="text-3xl font-semibold">Nuestra esencia</h2>
@@ -326,7 +322,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* ENVIANOS TU CASO */}
       <section className="bg-emerald-700 py-24">
         <div className="mx-auto max-w-4xl px-6">
           <div className="rounded-[2rem] bg-white p-8 shadow-xl sm:p-10">
@@ -404,7 +399,7 @@ export default function App() {
 
       {showNotice && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm">
-          <div className="animate-[fadeIn_0.25s_ease-out] rounded-2xl bg-white px-6 py-5 text-center shadow-xl">
+          <div className="rounded-2xl bg-white px-6 py-5 text-center shadow-xl transition-all duration-300 ease-out animate-[fadeIn_0.25s_ease-out]">
             <p className="text-sm text-slate-700">
               Estamos preparando tu mensaje y conectándote por WhatsApp…
             </p>
@@ -412,7 +407,6 @@ export default function App() {
         </div>
       )}
 
-      {/* CTA FINAL */}
       <section className="bg-emerald-50 py-20 text-center">
         <div className="mx-auto max-w-3xl px-6">
           <h2 className="text-3xl font-semibold leading-tight text-slate-900">
@@ -425,8 +419,36 @@ export default function App() {
             seguridad y confianza.
           </p>
 
+          <div className="mt-8 rounded-2xl border border-emerald-200 bg-white p-6 text-left shadow">
+            <p className="text-sm leading-relaxed text-slate-700">
+              Para ayudarte a encontrar más rápido a tu médico, dinos el nombre de
+              la cirugía que requieres o coloca “más o menos” de qué necesitas
+              operarte.
+              <br />
+              <br />
+              Ejemplo: de la columna, de la vesícula, apéndice, etc.
+              <br />
+              <br />
+              Así podemos gestionar tu valoración directamente con el especialista
+              aliado de la clínica de forma más rápida.
+            </p>
+          </div>
+
+          <div className="mt-6 text-left">
+            <label className="mb-2 block text-sm font-medium text-slate-700">
+              ¿Qué cirugía crees necesitar?
+            </label>
+            <input
+              type="text"
+              value={cirugiaTipo}
+              onChange={(e) => setCirugiaTipo(e.target.value)}
+              className="w-full rounded-2xl border border-emerald-200 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-emerald-500"
+              placeholder="Ejemplo: vesícula, columna, apéndice..."
+            />
+          </div>
+
           <a
-            href={whatsappCtaUrl}
+            href={whatsappCtaHref}
             target="_blank"
             rel="noreferrer"
             className="mt-8 inline-block rounded-full bg-emerald-700 px-8 py-4 font-semibold text-white shadow-lg transition hover:bg-emerald-600"
@@ -436,7 +458,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* CONTACTO */}
       <section className="bg-slate-950 py-20 text-center text-white">
         <h2 className="text-3xl font-semibold">Estamos para ayudarte</h2>
 
@@ -521,7 +542,6 @@ export default function App() {
         </div>
       </section>
 
-      {/* BOTON FLOTANTE MOVIL */}
       <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-200 bg-white/95 p-3 backdrop-blur sm:hidden">
         <div className="mx-auto flex max-w-md gap-3">
           <a
