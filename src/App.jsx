@@ -294,6 +294,45 @@ export default function App() {
           >
             Cómo llegar
           </a>
+
+          <a
+            href={wazeUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-white/20 bg-white/5 px-6 py-4 font-semibold transition hover:bg-white/10"
+          >
+            Waze
+          </a>
+        </div>
+
+        {/* MAPA */}
+        <div className="mx-auto mt-10 max-w-4xl px-4">
+          <iframe
+            src="https://www.google.com/maps?q=Cl%C3%ADnica+Benaia+Saltillo&output=embed"
+            className="h-80 w-full rounded-2xl border border-white/10 shadow-2xl"
+            loading="lazy"
+            title="Mapa Clínica Benaia"
+          ></iframe>
+
+          <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+            <a
+              href={mapsUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 font-semibold text-slate-900 transition hover:bg-slate-100"
+            >
+              Abrir ruta en Google Maps
+            </a>
+
+            <a
+              href={wazeUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+            >
+              Abrir ruta en Waze
+            </a>
+          </div>
         </div>
 
         <div className="mt-12 border-t border-white/10 pt-10">
