@@ -53,7 +53,7 @@ export default function App() {
         <img
           src="/images/guerrero-benaia.png"
           alt="Inspiración Clínica Benaia"
-          className="absolute inset-0 h-full w-full object-cover brightness-50 contrast-90 saturate-75"
+          className="absolute inset-0 h-full w-full object-cover object-[70%_center] sm:object-cover sm:object-center brightness-50 contrast-90 saturate-75"
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-950/98 via-slate-950/92 to-slate-950/70" />
@@ -198,7 +198,7 @@ export default function App() {
           </div>
 
           <img
-            src="/images/compania.jpeg"
+            src="/images/compañia.jpeg"
             alt="Acompañamiento en Clínica Benaia"
             className="rounded-3xl shadow"
           />
