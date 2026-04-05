@@ -200,8 +200,67 @@ export default function App() {
           <img
             src="/images/compania.jpeg"
             alt="Acompañamiento en Clínica Benaia"
-            className="rounded-3xl shadow w-full h-full object-cover"
+            className="rounded-3xl shadow"
           />
+        </div>
+      </section>
+
+      {/* STORYTELLING */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <h2 className="text-4xl font-semibold leading-tight sm:text-5xl">
+            No solo tratamos pacientes
+            <span className="block text-emerald-700 mt-3">
+              acompañamos procesos de recuperación
+            </span>
+          </h2>
+
+          <p className="mt-8 text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            En Clínica Benaia entendemos que cada persona llega con una historia,
+            una preocupación y una necesidad de sentirse segura. Por eso, más que
+            un espacio médico, somos un punto de apoyo donde encontrarás claridad,
+            acompañamiento y confianza en cada etapa de tu proceso.
+          </p>
+        </div>
+      </section>
+
+      {/* MISION Y VISION */}
+      <section className="bg-slate-100 py-24">
+        <div className="mx-auto max-w-6xl px-6 text-center">
+          <h2 className="text-3xl font-semibold">Nuestra esencia</h2>
+          <p className="mt-4 text-slate-600 max-w-2xl mx-auto">
+            Más que un espacio médico, somos un lugar donde cada persona encuentra
+            acompañamiento, claridad y confianza en uno de los momentos más
+            importantes de su vida.
+          </p>
+
+          <div className="mt-12 grid gap-8 md:grid-cols-2">
+            <div className="rounded-3xl bg-white p-8 shadow-lg">
+              <h3 className="text-xl font-semibold text-emerald-700">Misión</h3>
+              <p className="mt-4 text-slate-600">
+                Ser un instrumento de apoyo en el proceso de recuperación de cada
+                paciente, brindando atención médica quirúrgica con calidez,
+                profesionalismo y un acompañamiento cercano que genere confianza en
+                cada etapa.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white p-8 shadow-lg">
+              <h3 className="text-xl font-semibold text-emerald-700">Visión</h3>
+              <p className="mt-4 text-slate-600">
+                Consolidarnos como una clínica referente en atención integral en
+                Saltillo, reconocida por la experiencia humana que ofrecemos, la
+                seguridad de nuestros procesos y la tranquilidad que transmitimos a
+                cada paciente y su familia.
+              </p>
+            </div>
+          </div>
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-3 text-sm">
+            <div className="rounded-2xl bg-white p-4 shadow">✔ Atención centrada en la persona</div>
+            <div className="rounded-2xl bg-white p-4 shadow">✔ Claridad y confianza en cada paso</div>
+            <div className="rounded-2xl bg-white p-4 shadow">✔ Acompañamiento real durante todo el proceso</div>
+          </div>
         </div>
       </section>
 
